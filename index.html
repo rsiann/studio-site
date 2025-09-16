@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <!-- BUILD: PROD V7 NO-TEST -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sergio Ianniciello | Visual Design Studio</title>
+  <title>Sergio Ianniciello | Visual Design Studio — PROD V7</title>
 
   <!-- TailwindCSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,6 +17,8 @@
       --text:#374151;     /* body text */
       --bg:#F4F4F5;       /* light bg */
     }
+    /* Assicura click attivi sui bottoni */
+    button,input[type=submit]{pointer-events:auto;}
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
