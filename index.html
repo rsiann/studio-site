@@ -81,37 +81,27 @@
       </div>
 
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <!-- WORK 1 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work1.jpg" alt="Fluid Magazine — cover e impaginati interni" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Fluid Magazine — Issue 01</h3>
-            <p class="text-sm text-zinc-600 mt-1">
-              Dalla struttura al dettaglio: wireframe di sezione, proof di gabbia, palette tipografica, icone e callout.
-              Produzione completa per print e digitale con master template riutilizzabili.
-            </p>
+            <p class="text-sm text-zinc-600 mt-1">Dalla struttura al dettaglio: wireframe di sezione, palette tipografica, callout. Print & digitale.</p>
           </div>
         </article>
 
-        <!-- WORK 2 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work2.jpg" alt="Oncura E-visual — mockup iPad con 3 schermate" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Oncura — E-visual (demo)</h3>
-            <p class="text-sm text-zinc-600 mt-1">
-              Sistema grafico scalabile per presentare dati clinici complessi in modo chiaro, accessibile e visivamente consistente.
-            </p>
+            <p class="text-sm text-zinc-600 mt-1">Sistema scalabile per dati clinici: griglie, callout, coerenza visual.</p>
           </div>
         </article>
 
-        <!-- WORK 3 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work3.jpg" alt="Neuris Brand Book — regole di logo e applicazioni" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Neuris — Brand Book</h3>
-            <p class="text-sm text-zinc-600 mt-1">
-              Identità tipografica con guideline essenziali per applicazioni coerenti digitali e stampa.
-            </p>
+            <p class="text-sm text-zinc-600 mt-1">Guideline essenziali per applicazioni coerenti (stampa & digitale).</p>
           </div>
         </article>
       </div>
@@ -184,7 +174,7 @@
     </div>
   </section>
 
-  <!-- CONTACT (funziona senza JS) -->
+  <!-- CONTACT (SOLO HTML, CON “FORMACTION” SUL BOTTONE) -->
   <section id="contact" class="py-16 md:py-24 bg-white border-t">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
@@ -209,7 +199,12 @@
         <!-- <input type="hidden" name="_next" value="https://tuodominio.it/thanks.html"> -->
 
         <div class="flex items-center justify-between">
-          <button type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
+          <button
+            type="submit"
+            formaction="https://formspree.io/f/xandgwrp"
+            class="relative z-10 pointer-events-auto rounded-2xl px-5 py-3 text-white shadow-sm"
+            style="background:var(--petrol)">Invia</button>
+
           <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
         </div>
       </form>
@@ -218,20 +213,4 @@
 
   <!-- FOOTER -->
   <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <p class="text-zinc-600">&copy; <span id="year"></span> Sergio Ianniciello · P.IVA 03016040648</p>
-      <div class="flex gap-4 text-zinc-600">
-        <a class="hover:opacity-70" href="#top">Top</a>
-        <a class="hover:opacity-70" href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- SCRIPT SOLO PER ANNO -->
-  <script>
-    var y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex flex-col md:flex-row items-
