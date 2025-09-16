@@ -19,6 +19,7 @@
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
+
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-zinc-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -42,7 +43,10 @@
   <!-- HERO -->
   <section id="top" class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 opacity-70" aria-hidden="true">
-      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl" style="background: radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%), radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
+      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl"
+           style="background:
+             radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%),
+             radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -216,73 +220,92 @@
   </section>
 
   <!-- CONTACT -->
-<section id="contact" class="py-16 md:py-24 bg-white border-t">
-  <div class="max-w-3xl mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
-    <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
+  <section id="contact" class="py-16 md:py-24 bg-white border-t">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
+      <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
 
-    <form id="contactForm" action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
-      <div class="grid md:grid-cols-2 gap-4">
-        <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
-        <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
+      <form id="contactForm" action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
+          <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
+        </div>
+        <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
+        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
+
+        <!-- honeypot anti-bot -->
+        <div aria-hidden="true" class="hidden">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
+
+        <div class="flex items-center justify-between">
+          <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
+          <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
+        </div>
+
+        <p id="formStatus" class="hidden text-sm mt-2"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-zinc-600">&copy; <span id="year"></span> Sergio Ianniciello · P.IVA 03016040648</p>
+      <div class="flex gap-4 text-zinc-600">
+        <a class="hover:opacity-70" href="#top">Top</a>
+        <a class="hover:opacity-70" href="#contact">Contact</a>
       </div>
-      <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
-      <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
+    </div>
+  </footer>
 
-      <!-- honeypot anti-bot -->
-      <div aria-hidden="true" class="hidden">
-        <input type="text" name="website" tabindex="-1" autocomplete="off">
-      </div>
+  <!-- SCRIPTS -->
+  <script>
+    // Aggiorna anno footer (sicuro anche se #year non esiste)
+    (function(){
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
 
-      <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
+    // Invio AJAX + fallback nativo Formspree se qualcosa va storto / se file://
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+      var status = document.getElementById('formStatus');
+      var btn = document.getElementById('sendBtn');
 
-      <div class="flex items-center justify-between">
-        <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
-        <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Preferisci email? ianniciello.sergio@gmail.com</a>
-      </div>
+      function showStatus(msg, ok) {
+        if (!status) return;
+        status.textContent = msg;
+        status.className = "mt-2 text-sm " + (ok !== false ? "text-emerald-600" : "text-red-600");
+        status.classList.remove("hidden");
+      }
 
-      <p id="formHint" class="text-xs text-zinc-500">No cookie. No tracker. Solo email.</p>
-      <p id="formStatus" class="hidden text-sm mt-2"></p>
-    </form>
-  </div>
-</section>
+      // Se apri il file localmente (file://) o fetch non esiste, lascia il submit nativo
+      if (location.protocol === 'file:' || !window.fetch) return;
 
-<!-- (Metti questo <script> subito prima di </body>) -->
-<script>
-  // anno nel footer (se hai <span id="year">…</span>)
-  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
-
-  // Invio AJAX + feedback
-  (function () {
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const btn = document.getElementById('sendBtn');
-
-    function showStatus(msg, ok = true) {
-      status.textContent = msg;
-      status.className = "mt-2 text-sm " + (ok ? "text-emerald-600" : "text-red-600");
-      status.classList.remove("hidden");
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      btn.disabled = true; btn.style.opacity = 0.7;
-      try {
-        const data = new FormData(form);
-        const res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
-        if (res.ok) { form.reset(); showStatus('Grazie! Messaggio inviato correttamente.'); }
-        else {
-          let txt = 'Invio non riuscito. Riprova o scrivimi a ianniciello.sergio@gmail.com';
-          try { const err = await res.json(); if (err?.errors?.length) txt = err.errors.map(e => e.message).join(' · '); } catch(_) {}
-          showStatus(txt, false);
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (btn) { btn.disabled = true; btn.style.opacity = 0.7; }
+        try {
+          var data = new FormData(form);
+          var res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+          if (res.ok) {
+            form.reset();
+            showStatus('Grazie! Messaggio inviato correttamente.', true);
+          } else {
+            // fallback alla pagina di Formspree
+            form.submit();
+          }
+        } catch (err) {
+          form.submit(); // fallback alla pagina di Formspree
+        } finally {
+          if (btn) { btn.disabled = false; btn.style.opacity = 1; }
         }
-      } catch { showStatus('Errore di rete. Controlla la connessione e riprova.', false); }
-      finally { btn.disabled = false; btn.style.opacity = 1; }
-    });
-  })();
-</script>
-
-    document.getElementById('year').textContent = new Date().getFullYear();
+      });
+    })();
   </script>
 </body>
 </html>
