@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sergio Ianniciello | Visual Design Studio</title>
+  <title>Sergio Ianniciello | Visual Design Studio — DEPLOY OK</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{ --petrol:#0F4C5C; --cyan:#22D3EE; --aqua:#10B981; --text:#374151; --bg:#F4F4F5; }
@@ -12,26 +12,11 @@
 </head>
 <body class="bg-zinc-50 text-zinc-900">
 
-  <!-- ===== FORM TEST DIAGNOSTICO ===== -->
-  <section style="margin:16px;border:3px dashed #dc2626;padding:16px;background:#fff">
-    <h2 style="font:16px/1.4 system-ui;color:#dc2626;margin-bottom:8px">FORM TEST (se non lo vedi qui, c'è un problema di cache)</h2>
-    <form action="https://formspree.io/f/xandgwrp" method="POST" target="_self" style="display:flex;gap:8px;flex-wrap:wrap">
-      <input name="email" value="test@example.com" style="padding:8px;border:1px solid #ccc">
-      <input name="message" value="ping" style="padding:8px;border:1px solid #ccc">
-      <input type="submit" value="INVIA TEST"
-             formaction="https://formspree.io/f/xandgwrp"
-             style="padding:10px 14px;background:#0F4C5C;color:#fff;border:0;cursor:pointer">
-    </form>
-    <p style="font:12px/1.4 system-ui;color:#444;margin-top:8px">
-      Clicca <b>INVIA TEST</b> → se non vai su Formspree, non è colpa del codice ma del browser/estensioni.
-    </p>
-  </section>
-
   <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="Logo Sergio Ianniciello" class="h-10 w-auto">
+        <img src="./assets/logo.png" alt="Logo Sergio Ianniciello" class="h-10 w-auto">
         <span class="font-semibold tracking-tight text-lg">
           Sergio Ianniciello <span class="text-zinc-400">|</span>
           <span class="text-zinc-700">Visual Design Studio</span>
@@ -51,9 +36,7 @@
   <section id="top" class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 opacity-70" aria-hidden="true">
       <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl"
-           style="background:
-             radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%),
-             radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
+           style="background:radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%), radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -72,9 +55,7 @@
         </div>
       </div>
       <div class="md:justify-self-end bg-white/70 backdrop-blur p-4 rounded-2xl shadow-sm border border-zinc-200">
-        <p class="text-xs text-zinc-600">
-          Case study completi su richiesta. NDA-friendly.
-        </p>
+        <p class="text-xs text-zinc-600">Case study completi su richiesta. NDA-friendly.</p>
       </div>
     </div>
   </section>
@@ -88,15 +69,15 @@
       </div>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work1.jpg" alt="Fluid Magazine" class="w-full h-auto object-cover">
+          <img src="./assets/work1.jpg" alt="Fluid Magazine" class="w-full h-auto object-cover">
           <div class="p-5"><h3 class="font-medium">Fluid Magazine — Issue 01</h3></div>
         </article>
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work2.jpg" alt="Oncura E-visual" class="w-full h-auto object-cover">
+          <img src="./assets/work2.jpg" alt="Oncura E-visual" class="w-full h-auto object-cover">
           <div class="p-5"><h3 class="font-medium">Oncura — E-visual (demo)</h3></div>
         </article>
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work3.jpg" alt="Neuris Brand Book" class="w-full h-auto object-cover">
+          <img src="./assets/work3.jpg" alt="Neuris Brand Book" class="w-full h-auto object-cover">
           <div class="p-5"><h3 class="font-medium">Neuris — Brand Book</h3></div>
         </article>
       </div>
@@ -144,18 +125,38 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (HTML puro, Formspree) -->
   <section id="contact" class="py-16 md:py-24 bg-white border-t">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
+      <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
+
       <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
-        <input class="border rounded-xl p-3" name="name" placeholder="Nome">
-        <input class="border rounded-xl p-3" name="email" placeholder="Email">
-        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Messaggio"></textarea>
-        <button type="submit" formaction="https://formspree.io/f/xandgwrp"
-                class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">
-          Invia
-        </button>
+        <div class="grid md:grid-cols-2 gap-4">
+          <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
+          <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
+        </div>
+        <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
+        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
+
+        <!-- Anti-bot -->
+        <div aria-hidden="true" class="hidden">
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <!-- Oggetto email -->
+        <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
+
+        <!-- (Opzionale) Redirect a pagina "grazie" -->
+        <!-- <input type="hidden" name="_next" value="./thanks.html"> -->
+
+        <div class="flex items-center justify-between">
+          <button type="submit" formaction="https://formspree.io/f/xandgwrp"
+                  class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">
+            Invia
+          </button>
+          <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
+        </div>
       </form>
     </div>
   </section>
