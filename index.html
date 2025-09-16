@@ -216,34 +216,72 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-16 md:py-24 bg-white border-t">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
-      <p class="mt-3 text-zinc-700">Inviami il tuo brief: riceverai una risposta chiara e veloce.</p>
+<section id="contact" class="py-16 md:py-24 bg-white border-t">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
+    <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
 
-      <!-- Form con Formspree -->
-      <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
-  <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
-  <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
-  <textarea class="border rounded-xl p-3" name="message" placeholder="Messaggio" required></textarea>
-  <button type="submit" class="rounded-2xl px-5 py-3 text-white" style="background:#0F4C5C">Invia</button>
-</form>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 bg-zinc-50 border-t">
-    <div class="max-w-6xl mx-auto px-4 text-sm text-zinc-600 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <div>© <span id="year"></span> Sergio Ianniciello — Visual Design Studio</div>
-      <div class="flex gap-4">
-        <a href="#" class="underline underline-offset-4">Privacy</a>
-        <a href="#" class="underline underline-offset-4">Credits</a>
+    <form id="contactForm" action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
+      <div class="grid md:grid-cols-2 gap-4">
+        <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
+        <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
       </div>
-    </div>
-  </footer>
+      <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
+      <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
 
-  <script>
+      <!-- honeypot anti-bot -->
+      <div aria-hidden="true" class="hidden">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
+
+      <div class="flex items-center justify-between">
+        <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
+        <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Preferisci email? ianniciello.sergio@gmail.com</a>
+      </div>
+
+      <p id="formHint" class="text-xs text-zinc-500">No cookie. No tracker. Solo email.</p>
+      <p id="formStatus" class="hidden text-sm mt-2"></p>
+    </form>
+  </div>
+</section>
+
+<!-- (Metti questo <script> subito prima di </body>) -->
+<script>
+  // anno nel footer (se hai <span id="year">…</span>)
+  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+  // Invio AJAX + feedback
+  (function () {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const btn = document.getElementById('sendBtn');
+
+    function showStatus(msg, ok = true) {
+      status.textContent = msg;
+      status.className = "mt-2 text-sm " + (ok ? "text-emerald-600" : "text-red-600");
+      status.classList.remove("hidden");
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true; btn.style.opacity = 0.7;
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+        if (res.ok) { form.reset(); showStatus('Grazie! Messaggio inviato correttamente.'); }
+        else {
+          let txt = 'Invio non riuscito. Riprova o scrivimi a ianniciello.sergio@gmail.com';
+          try { const err = await res.json(); if (err?.errors?.length) txt = err.errors.map(e => e.message).join(' · '); } catch(_) {}
+          showStatus(txt, false);
+        }
+      } catch { showStatus('Errore di rete. Controlla la connessione e riprova.', false); }
+      finally { btn.disabled = false; btn.style.opacity = 1; }
+    });
+  })();
+</script>
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
