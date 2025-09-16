@@ -223,26 +223,38 @@
     <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
     <p class="mt-3 text-zinc-700">Inviami il tuo brief: riceverai una risposta chiara e veloce.</p>
 
-    <form id="contactForm" class="mt-8 grid gap-4">
+    <form id="contactForm" class="mt-8 grid gap-4" novalidate>
       <div class="grid md:grid-cols-2 gap-4">
-        <input id="nameInput" class="border rounded-xl p-3" placeholder="Nome" required />
-        <input id="emailInput" class="border rounded-xl p-3" placeholder="Email" type="email" required />
+        <input name="name"  class="border rounded-xl p-3" placeholder="Nome" required />
+        <input name="email" class="border rounded-xl p-3" placeholder="Email" type="email" required />
       </div>
-      <input id="companyInput" class="border rounded-xl p-3" placeholder="Azienda / Brand (facoltativo)" />
-      <textarea id="messageInput" class="border rounded-xl p-3 min-h-[140px]" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
 
-      <div class="flex items-center justify-between">
-        <button type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
+      <input  name="company" class="border rounded-xl p-3" placeholder="Azienda / Brand (facoltativo)" />
+      <textarea name="message" class="border rounded-xl p-3 min-h-[140px]" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
+
+      <!-- Anti-bot honeypot (invisibile) -->
+      <div aria-hidden="true" class="hidden">
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- Oggetto lato email -->
+      <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
+
+      <div class="flex items-center justify-between gap-4">
+        <button id="sendBtn" type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">
+          Invia
+        </button>
         <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">
           Preferisci email? ianniciello.sergio@gmail.com
         </a>
       </div>
 
-      <p class="text-xs text-zinc-500">No cookie. No tracker. Solo email.</p>
-      <p id="formHint" class="hidden text-sm mt-2"></p>
+      <p id="formHint" class="text-xs text-zinc-500">No cookie. No tracker. Solo email.</p>
+      <p id="formStatus" class="hidden text-sm mt-2"></p>
     </form>
   </div>
 </section>
+
 
 
   <!-- FOOTER -->
@@ -260,5 +272,53 @@
     // anno automatico
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+		<script>
+  (function () {
+    const ENDPOINT = "https://formspree.io/f/YOUR_ENDPOINT"; // ← incolla qui
+
+    const form   = document.getElementById("contactForm");
+    const status = document.getElementById("formStatus");
+    const btn    = document.getElementById("sendBtn");
+
+    function setStatus(text, ok=true) {
+      status.textContent = text;
+      status.className = ok ? "text-emerald-600 text-sm mt-2"
+                            : "text-red-600 text-sm mt-2";
+      status.classList.remove("hidden");
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fd = new FormData(form);
+      if (!fd.get("name") || !fd.get("email") || !fd.get("message")) {
+        return setStatus("Compila nome, email e messaggio.", false);
+      }
+
+      btn.disabled = true; btn.style.opacity = .8;
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: fd
+        });
+
+        if (res.ok) {
+          form.reset();
+          setStatus("Grazie! Messaggio inviato correttamente. Ti risponderò a breve.");
+        } else {
+          setStatus("Invio non riuscito. Riprova o scrivimi a ianniciello.sergio@gmail.com", false);
+        }
+      } catch {
+        setStatus("Errore di rete. Prova ancora o usa l'email diretta.", false);
+      } finally {
+        btn.disabled = false; btn.style.opacity = 1;
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
