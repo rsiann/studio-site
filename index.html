@@ -221,7 +221,7 @@
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
       <p class="mt-3 text-zinc-700">Inviami il tuo brief: riceverai una risposta chiara e veloce.</p>
-     <form action="https://formspree.io/f/xandgvrp" method="POST" class="mt-8 grid gap-4">
+<form action="https://formspree.io/f/PUT_ENDPOINT_HERE" method="POST" class="mt-8 grid gap-4">
   <div class="grid md:grid-cols-2 gap-4">
     <input class="border rounded-xl p-3" placeholder="Nome" name="name" required />
     <input class="border rounded-xl p-3" placeholder="Email" type="email" name="email" required />
@@ -229,7 +229,7 @@
   <input class="border rounded-xl p-3" placeholder="Azienda / Brand" name="company" />
   <textarea class="border rounded-xl p-3 min-h-[140px]" placeholder="Dettagli progetto, obiettivi, deadline" name="message" required></textarea>
 
-  <!-- honeypot anti-bot (ok tenerlo) -->
+  <!-- honeypot anti-bot -->
   <div aria-hidden="true" class="hidden">
     <input type="text" name="website" tabindex="-1" autocomplete="off">
   </div>
@@ -238,11 +238,14 @@
 
   <div class="flex items-center justify-between">
     <button type="submit" class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">Invia</button>
-    <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Preferisci email? ianniciello.sergio@gmail.com</a>
+    <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">
+      Preferisci email? ianniciello.sergio@gmail.com
+    </a>
   </div>
 
   <p class="text-xs text-zinc-500">No cookie. No tracker. Solo email.</p>
 </form>
+
 
     </div>
   </section>
