@@ -7,24 +7,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{ --petrol:#0F4C5C; --cyan:#22D3EE; --aqua:#10B981; --text:#374151; --bg:#F4F4F5; }
-    /* Anti-overlay/paranoia: assicuriamoci che i click arrivino ai bottoni */
-    button, input[type=submit] { pointer-events:auto; }
+    button,input[type=submit]{pointer-events:auto;}
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
 
-<!-- ===== FORM TEST VISIBILE ===== -->
-<section style="margin:12px;border:2px dashed #e11d48;padding:12px;background:#fff">
-  <div style="font:14px/1.3 system-ui;margin-bottom:8px;color:#e11d48">FORM TEST (devi vederlo qui!)</div>
-  <form action="https://formspree.io/f/xandgwrp" method="POST" target="_self" style="display:flex;gap:8px;flex-wrap:wrap">
-    <input name="email" value="test@example.com" style="padding:8px;border:1px solid #ccc">
-    <input name="message" value="ping" style="padding:8px;border:1px solid #ccc">
-    <input type="submit" value="INVIA TEST" style="padding:8px 12px;background:#0F4C5C;color:#fff;border:0;cursor:pointer">
-  </form>
-</section>
+  <!-- ===== FORM TEST DIAGNOSTICO ===== -->
+  <section style="margin:16px;border:3px dashed #dc2626;padding:16px;background:#fff">
+    <h2 style="font:16px/1.4 system-ui;color:#dc2626;margin-bottom:8px">FORM TEST (se non lo vedi qui, c'è un problema di cache)</h2>
+    <form action="https://formspree.io/f/xandgwrp" method="POST" target="_self" style="display:flex;gap:8px;flex-wrap:wrap">
+      <input name="email" value="test@example.com" style="padding:8px;border:1px solid #ccc">
+      <input name="message" value="ping" style="padding:8px;border:1px solid #ccc">
+      <input type="submit" value="INVIA TEST"
+             formaction="https://formspree.io/f/xandgwrp"
+             style="padding:10px 14px;background:#0F4C5C;color:#fff;border:0;cursor:pointer">
+    </form>
+    <p style="font:12px/1.4 system-ui;color:#444;margin-top:8px">
+      Clicca <b>INVIA TEST</b> → se non vai su Formspree, non è colpa del codice ma del browser/estensioni.
+    </p>
+  </section>
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200 mt-6">
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3">
         <img src="assets/logo.png" alt="Logo Sergio Ianniciello" class="h-10 w-auto">
@@ -82,28 +86,18 @@
         <h2 class="text-2xl md:text-3xl font-semibold">Selected Work</h2>
         <a href="#contact" class="text-sm underline underline-offset-4">Request full portfolio</a>
       </div>
-
       <div class="mt-8 grid md:grid-cols-3 gap-6">
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work1.jpg" alt="Fluid Magazine" class="w-full h-auto object-cover">
-          <div class="p-5">
-            <h3 class="font-medium">Fluid Magazine — Issue 01</h3>
-            <p class="text-sm text-zinc-600 mt-1">Wireframe, gabbie, palette tipografica, callout. Print & digitale.</p>
-          </div>
+          <div class="p-5"><h3 class="font-medium">Fluid Magazine — Issue 01</h3></div>
         </article>
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work2.jpg" alt="Oncura E-visual" class="w-full h-auto object-cover">
-          <div class="p-5">
-            <h3 class="font-medium">Oncura — E-visual (demo)</h3>
-            <p class="text-sm text-zinc-600 mt-1">Sistema scalabile per dati clinici: griglie, callout, coerenza visual.</p>
-          </div>
+          <div class="p-5"><h3 class="font-medium">Oncura — E-visual (demo)</h3></div>
         </article>
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
           <img src="assets/work3.jpg" alt="Neuris Brand Book" class="w-full h-auto object-cover">
-          <div class="p-5">
-            <h3 class="font-medium">Neuris — Brand Book</h3>
-            <p class="text-sm text-zinc-600 mt-1">Guideline essenziali per applicazioni coerenti (stampa & digitale).</p>
-          </div>
+          <div class="p-5"><h3 class="font-medium">Neuris — Brand Book</h3></div>
         </article>
       </div>
     </div>
@@ -114,30 +108,9 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Services</h2>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl p-6 bg-white border">
-          <h3 class="font-medium">Editorial Design</h3>
-          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
-            <li>Magazines, report, brochure</li>
-            <li>Infografiche e data-dense</li>
-            <li>Print + PDF interattivi</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl p-6 bg-white border">
-          <h3 class="font-medium">Brand Identity</h3>
-          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
-            <li>Logotipo & sistema visivo</li>
-            <li>Linee guida & template</li>
-            <li>Kit social & campagne</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl p-6 bg-white border">
-          <h3 class="font-medium">Healthcare / Pharma</h3>
-          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
-            <li>E-visual, HCP deck, agende</li>
-            <li>Design compliant & accessibile</li>
-            <li>Turnaround rapido, NDA-safe</li>
-          </ul>
-        </div>
+        <div class="rounded-2xl p-6 bg-white border">Editorial Design</div>
+        <div class="rounded-2xl p-6 bg-white border">Brand Identity</div>
+        <div class="rounded-2xl p-6 bg-white border">Healthcare / Pharma</div>
       </div>
     </div>
   </section>
@@ -160,14 +133,12 @@
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
       <div class="md:col-span-2">
         <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
-        <p class="mt-4 text-zinc-700">Mi occupo di design editoriale e visual identity, trasformando contenuti articolati in esperienze chiare e leggibili.</p>
+        <p class="mt-4 text-zinc-700">Mi occupo di design editoriale e visual identity...</p>
       </div>
       <div class="rounded-2xl bg-white border p-6">
         <h3 class="font-medium">Facts</h3>
-        <ul class="mt-3 space-y-2 text-sm text-zinc-700">
-          <li>Salerno (IT) · Remoto & on-site</li>
-          <li>P.IVA 03016040648</li>
-          <li>IT / EN</li>
+        <ul class="mt-3 text-sm text-zinc-700">
+          <li>Salerno (IT)</li><li>P.IVA 03016040648</li><li>IT / EN</li>
         </ul>
       </div>
     </div>
@@ -177,31 +148,14 @@
   <section id="contact" class="py-16 md:py-24 bg-white border-t">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
-      <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
-
-      <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4" novalidate>
-        <div class="grid md:grid-cols-2 gap-4">
-          <input class="border rounded-xl p-3" name="name" placeholder="Nome">
-          <input class="border rounded-xl p-3" name="email" placeholder="Email">
-        </div>
-
-        <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
-        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline"></textarea>
-
-        <!-- honeypot anti-bot -->
-        <div aria-hidden="true" class="hidden">
-          <input type="text" name="website" tabindex="-1" autocomplete="off">
-        </div>
-
-        <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
-
-        <div class="flex items-center justify-between">
-          <button type="submit"
-                  formaction="https://formspree.io/f/xandgwrp"
-                  class="rounded-2xl px-5 py-3 text-white shadow-sm"
-                  style="background:var(--petrol)">Invia</button>
-          <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
-        </div>
+      <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
+        <input class="border rounded-xl p-3" name="name" placeholder="Nome">
+        <input class="border rounded-xl p-3" name="email" placeholder="Email">
+        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Messaggio"></textarea>
+        <button type="submit" formaction="https://formspree.io/f/xandgwrp"
+                class="rounded-2xl px-5 py-3 text-white shadow-sm" style="background:var(--petrol)">
+          Invia
+        </button>
       </form>
     </div>
   </section>
