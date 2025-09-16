@@ -13,19 +13,15 @@
 </head>
 <body class="bg-zinc-50 text-zinc-900">
 
-  <!-- ====== FORM TEST (diagnosi rapida) ====== -->
-  <section class="max-w-6xl mx-auto px-4 py-4 mt-4 bg-white border rounded-2xl">
-    <h2 class="text-sm font-semibold">FORM TEST (nudo e crudo)</h2>
-    <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-2 flex items-center gap-2" target="_self">
-      <input name="email" value="test@example.com" class="border rounded p-2 text-sm">
-      <input name="message" value="ping" class="border rounded p-2 text-sm">
-      <!-- submit “nucleare”: anche se il form viene intercettato, il bottone forza l’endpoint -->
-      <input type="submit" value="INVIA TEST"
-             formaction="https://formspree.io/f/xandgwrp"
-             class="px-3 py-2 rounded text-white cursor-pointer" style="background:var(--petrol)">
-    </form>
-    <p class="text-xs text-zinc-600 mt-2">Cliccando “INVIA TEST” dovresti vedere la pagina di Formspree.</p>
-  </section>
+<!-- ===== FORM TEST VISIBILE ===== -->
+<section style="margin:12px;border:2px dashed #e11d48;padding:12px;background:#fff">
+  <div style="font:14px/1.3 system-ui;margin-bottom:8px;color:#e11d48">FORM TEST (devi vederlo qui!)</div>
+  <form action="https://formspree.io/f/xandgwrp" method="POST" target="_self" style="display:flex;gap:8px;flex-wrap:wrap">
+    <input name="email" value="test@example.com" style="padding:8px;border:1px solid #ccc">
+    <input name="message" value="ping" style="padding:8px;border:1px solid #ccc">
+    <input type="submit" value="INVIA TEST" style="padding:8px 12px;background:#0F4C5C;color:#fff;border:0;cursor:pointer">
+  </form>
+</section>
 
   <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200 mt-6">
