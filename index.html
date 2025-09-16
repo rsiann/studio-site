@@ -7,12 +7,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root{ --petrol:#0F4C5C; --cyan:#22D3EE; --aqua:#10B981; --text:#374151; --bg:#F4F4F5; }
+    /* Anti-overlay/paranoia: assicuriamoci che i click arrivino ai bottoni */
+    button, input[type=submit] { pointer-events:auto; }
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
 
+  <!-- ====== FORM TEST (diagnosi rapida) ====== -->
+  <section class="max-w-6xl mx-auto px-4 py-4 mt-4 bg-white border rounded-2xl">
+    <h2 class="text-sm font-semibold">FORM TEST (nudo e crudo)</h2>
+    <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-2 flex items-center gap-2" target="_self">
+      <input name="email" value="test@example.com" class="border rounded p-2 text-sm">
+      <input name="message" value="ping" class="border rounded p-2 text-sm">
+      <!-- submit “nucleare”: anche se il form viene intercettato, il bottone forza l’endpoint -->
+      <input type="submit" value="INVIA TEST"
+             formaction="https://formspree.io/f/xandgwrp"
+             class="px-3 py-2 rounded text-white cursor-pointer" style="background:var(--petrol)">
+    </form>
+    <p class="text-xs text-zinc-600 mt-2">Cliccando “INVIA TEST” dovresti vedere la pagina di Formspree.</p>
+  </section>
+
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-zinc-200">
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200 mt-6">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3">
         <img src="assets/logo.png" alt="Logo Sergio Ianniciello" class="h-10 w-auto">
@@ -56,7 +72,9 @@
         </div>
       </div>
       <div class="md:justify-self-end bg-white/70 backdrop-blur p-4 rounded-2xl shadow-sm border border-zinc-200">
-        <p class="text-xs text-zinc-600">Case study completi su richiesta. NDA-friendly.</p>
+        <p class="text-xs text-zinc-600">
+          Case study completi su richiesta. NDA-friendly.
+        </p>
       </div>
     </div>
   </section>
@@ -71,23 +89,21 @@
 
       <div class="mt-8 grid md:grid-cols-3 gap-6">
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work1.jpg" alt="Fluid Magazine — cover e impaginati interni" class="w-full h-auto object-cover">
+          <img src="assets/work1.jpg" alt="Fluid Magazine" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Fluid Magazine — Issue 01</h3>
-            <p class="text-sm text-zinc-600 mt-1">Wireframe di sezione, palette tipografica, callout. Print & digitale.</p>
+            <p class="text-sm text-zinc-600 mt-1">Wireframe, gabbie, palette tipografica, callout. Print & digitale.</p>
           </div>
         </article>
-
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work2.jpg" alt="Oncura E-visual — mockup iPad con 3 schermate" class="w-full h-auto object-cover">
+          <img src="assets/work2.jpg" alt="Oncura E-visual" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Oncura — E-visual (demo)</h3>
             <p class="text-sm text-zinc-600 mt-1">Sistema scalabile per dati clinici: griglie, callout, coerenza visual.</p>
           </div>
         </article>
-
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="assets/work3.jpg" alt="Neuris Brand Book — regole di logo e applicazioni" class="w-full h-auto object-cover">
+          <img src="assets/work3.jpg" alt="Neuris Brand Book" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Neuris — Brand Book</h3>
             <p class="text-sm text-zinc-600 mt-1">Guideline essenziali per applicazioni coerenti (stampa & digitale).</p>
@@ -170,7 +186,7 @@
       <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4" novalidate>
         <div class="grid md:grid-cols-2 gap-4">
           <input class="border rounded-xl p-3" name="name" placeholder="Nome">
-          <input class="border rounded-xl p-3" name="email" placeholder="Email (qualunque testo va bene)">
+          <input class="border rounded-xl p-3" name="email" placeholder="Email">
         </div>
 
         <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
@@ -184,11 +200,10 @@
         <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
 
         <div class="flex items-center justify-between">
-          <button
-            type="submit"
-            formaction="https://formspree.io/f/xandgwrp"
-            class="rounded-2xl px-5 py-3 text-white shadow-sm"
-            style="background:var(--petrol)">Invia</button>
+          <button type="submit"
+                  formaction="https://formspree.io/f/xandgwrp"
+                  class="rounded-2xl px-5 py-3 text-white shadow-sm"
+                  style="background:var(--petrol)">Invia</button>
           <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
         </div>
       </form>
@@ -207,7 +222,7 @@
   </footer>
 
   <script>
-    var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
