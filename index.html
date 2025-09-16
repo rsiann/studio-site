@@ -4,18 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sergio Ianniciello | Visual Design Studio</title>
-
-  <!-- TailwindCSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    :root{
-      --petrol:#0F4C5C;   /* primary */
-      --cyan:#22D3EE;     /* accent */
-      --aqua:#10B981;     /* positive */
-      --text:#374151;     /* body text */
-      --bg:#F4F4F5;       /* light bg */
-    }
+    :root{ --petrol:#0F4C5C; --cyan:#22D3EE; --aqua:#10B981; --text:#374151; --bg:#F4F4F5; }
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
@@ -65,9 +56,7 @@
         </div>
       </div>
       <div class="md:justify-self-end bg-white/70 backdrop-blur p-4 rounded-2xl shadow-sm border border-zinc-200">
-        <p class="text-xs text-zinc-600">
-          Case study completi su richiesta. NDA-friendly.
-        </p>
+        <p class="text-xs text-zinc-600">Case study completi su richiesta. NDA-friendly.</p>
       </div>
     </div>
   </section>
@@ -85,7 +74,7 @@
           <img src="assets/work1.jpg" alt="Fluid Magazine — cover e impaginati interni" class="w-full h-auto object-cover">
           <div class="p-5">
             <h3 class="font-medium">Fluid Magazine — Issue 01</h3>
-            <p class="text-sm text-zinc-600 mt-1">Dalla struttura al dettaglio: wireframe di sezione, palette tipografica, callout. Print & digitale.</p>
+            <p class="text-sm text-zinc-600 mt-1">Wireframe di sezione, palette tipografica, callout. Print & digitale.</p>
           </div>
         </article>
 
@@ -159,9 +148,7 @@
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
       <div class="md:col-span-2">
         <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
-        <p class="mt-4 text-zinc-700">
-          Mi occupo di design editoriale e visual identity, trasformando contenuti articolati in esperienze chiare e leggibili. Il mio lavoro spazia dall’editoria tradizionale alla comunicazione healthcare.
-        </p>
+        <p class="mt-4 text-zinc-700">Mi occupo di design editoriale e visual identity, trasformando contenuti articolati in esperienze chiare e leggibili.</p>
       </div>
       <div class="rounded-2xl bg-white border p-6">
         <h3 class="font-medium">Facts</h3>
@@ -174,20 +161,20 @@
     </div>
   </section>
 
-  <!-- CONTACT (SOLO HTML, CON “FORMACTION” SUL BOTTONE) -->
+  <!-- CONTACT -->
   <section id="contact" class="py-16 md:py-24 bg-white border-t">
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Start a Project</h2>
       <p class="mt-3 text-zinc-700">Inviami il tuo brief: rispondo entro 1 giorno lavorativo.</p>
 
-      <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4">
+      <form action="https://formspree.io/f/xandgwrp" method="POST" class="mt-8 grid gap-4" novalidate>
         <div class="grid md:grid-cols-2 gap-4">
-          <input class="border rounded-xl p-3" name="name" placeholder="Nome" required>
-          <input class="border rounded-xl p-3" name="email" type="email" placeholder="Email" required>
+          <input class="border rounded-xl p-3" name="name" placeholder="Nome">
+          <input class="border rounded-xl p-3" name="email" placeholder="Email (qualunque testo va bene)">
         </div>
 
         <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
-        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
+        <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline"></textarea>
 
         <!-- honeypot anti-bot -->
         <div aria-hidden="true" class="hidden">
@@ -195,16 +182,13 @@
         </div>
 
         <input type="hidden" name="_subject" value="Nuova richiesta progetto dal portfolio">
-        <!-- opzionale redirect personalizzato -->
-        <!-- <input type="hidden" name="_next" value="https://tuodominio.it/thanks.html"> -->
 
         <div class="flex items-center justify-between">
           <button
             type="submit"
             formaction="https://formspree.io/f/xandgwrp"
-            class="relative z-10 pointer-events-auto rounded-2xl px-5 py-3 text-white shadow-sm"
+            class="rounded-2xl px-5 py-3 text-white shadow-sm"
             style="background:var(--petrol)">Invia</button>
-
           <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
         </div>
       </form>
@@ -213,4 +197,17 @@
 
   <!-- FOOTER -->
   <footer class="border-t bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex flex-col md:flex-row items-
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-zinc-600">&copy; <span id="year"></span> Sergio Ianniciello · P.IVA 03016040648</p>
+      <div class="flex gap-4 text-zinc-600">
+        <a class="hover:opacity-70" href="#top">Top</a>
+        <a class="hover:opacity-70" href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
