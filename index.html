@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sergio Ianniciello | Visual Design Studio — DEPLOY OK</title>
+  <title>Sergio Ianniciello | Visual Design Studio</title>
+
+  <!-- TailwindCSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root{ --petrol:#0F4C5C; --cyan:#22D3EE; --aqua:#10B981; --text:#374151; --bg:#F4F4F5; }
-    button,input[type=submit]{pointer-events:auto;}
+    :root{
+      --petrol:#0F4C5C;   /* primary */
+      --cyan:#22D3EE;     /* accent */
+      --aqua:#10B981;     /* positive */
+      --text:#374151;     /* body text */
+      --bg:#F4F4F5;       /* light bg */
+    }
   </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900">
-
   <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-zinc-200">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-zinc-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3">
         <img src="./assets/logo.png" alt="Logo Sergio Ianniciello" class="h-10 w-auto">
@@ -35,8 +42,9 @@
   <!-- HERO -->
   <section id="top" class="relative overflow-hidden">
     <div class="absolute inset-0 -z-10 opacity-70" aria-hidden="true">
-      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl"
-           style="background:radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%), radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
+      <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full blur-3xl" style="background:
+        radial-gradient(600px at 100% 0%, rgba(34,211,238,.35), transparent 60%),
+        radial-gradient(500px at 0% 100%, rgba(16,185,129,.35), transparent 60%);"></div>
     </div>
     <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
       <div>
@@ -55,7 +63,9 @@
         </div>
       </div>
       <div class="md:justify-self-end bg-white/70 backdrop-blur p-4 rounded-2xl shadow-sm border border-zinc-200">
-        <p class="text-xs text-zinc-600">Case study completi su richiesta. NDA-friendly.</p>
+        <p class="text-xs text-zinc-600">
+          Case study completi su richiesta. NDA-friendly.
+        </p>
       </div>
     </div>
   </section>
@@ -67,18 +77,56 @@
         <h2 class="text-2xl md:text-3xl font-semibold">Selected Work</h2>
         <a href="#contact" class="text-sm underline underline-offset-4">Request full portfolio</a>
       </div>
+
       <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- WORK 1 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="./assets/work1.jpg" alt="Fluid Magazine" class="w-full h-auto object-cover">
-          <div class="p-5"><h3 class="font-medium">Fluid Magazine — Issue 01</h3></div>
+          <img src="./assets/work1.jpg" alt="Fluid Magazine — cover e impaginati interni" class="w-full h-auto object-cover">
+          <div class="p-5">
+            <h3 class="font-medium">Fluid Magazine — Issue 01</h3>
+            <p class="text-sm text-zinc-600 mt-1">
+              Dalla struttura al dettaglio: wireframe di sezione, proof di gabbia, palette tipografica, icone e callout.
+              Produzione completa per print e digitale con master template riutilizzabili.
+            </p>
+            <div class="mt-3 flex gap-2 text-xs text-zinc-600">
+              <span class="px-2 py-1 rounded-full border">Editorial</span>
+              <span class="px-2 py-1 rounded-full border">Layout</span>
+              <span class="px-2 py-1 rounded-full border">Interactive</span>
+            </div>
+          </div>
         </article>
+
+        <!-- WORK 2 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="./assets/work2.jpg" alt="Oncura E-visual" class="w-full h-auto object-cover">
-          <div class="p-5"><h3 class="font-medium">Oncura — E-visual (demo)</h3></div>
+          <img src="./assets/work2.jpg" alt="Oncura E-visual — mockup iPad con 3 schermate" class="w-full h-auto object-cover">
+          <div class="p-5">
+            <h3 class="font-medium">Oncura — E-visual (demo)</h3>
+            <p class="text-sm text-zinc-600 mt-1">
+              Definizione di un sistema grafico scalabile: griglie, callout, palette petrolio/ciano e componenti riutilizzabili. Obiettivo: presentare dati clinici complessi in modo chiaro, accessibile e visivamente consistente.
+            </p>
+            <div class="mt-3 flex gap-2 text-xs text-zinc-600">
+              <span class="px-2 py-1 rounded-full border">Pharma</span>
+              <span class="px-2 py-1 rounded-full border">Slides</span>
+              <span class="px-2 py-1 rounded-full border">Data-dense</span>
+            </div>
+          </div>
         </article>
+
+        <!-- WORK 3 -->
         <article class="group rounded-2xl overflow-hidden border bg-zinc-50 hover:shadow-md transition">
-          <img src="./assets/work3.jpg" alt="Neuris Brand Book" class="w-full h-auto object-cover">
-          <div class="p-5"><h3 class="font-medium">Neuris — Brand Book</h3></div>
+          <img src="./assets/work3.jpg" alt="Neuris Brand Book — regole di logo e applicazioni" class="w-full h-auto object-cover">
+          <div class="p-5">
+            <h3 class="font-medium">Neuris — Brand Book</h3>
+            <p class="text-sm text-zinc-600 mt-1">
+              Identità tipografica con guideline essenziali: spaziature, minimi, uso digitale/stampa
+              e kit template per applicazioni coerenti.
+            </p>
+            <div class="mt-3 flex gap-2 text-xs text-zinc-600">
+              <span class="px-2 py-1 rounded-full border">Identity</span>
+              <span class="px-2 py-1 rounded-full border">Guidelines</span>
+              <span class="px-2 py-1 rounded-full border">Templates</span>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -89,9 +137,30 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Services</h2>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl p-6 bg-white border">Editorial Design</div>
-        <div class="rounded-2xl p-6 bg-white border">Brand Identity</div>
-        <div class="rounded-2xl p-6 bg-white border">Healthcare / Pharma</div>
+        <div class="rounded-2xl p-6 bg-white border">
+          <h3 class="font-medium">Editorial Design</h3>
+          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
+            <li>Magazines, report, brochure</li>
+            <li>Infografiche e data-dense</li>
+            <li>Print + PDF interattivi</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border">
+          <h3 class="font-medium">Brand Identity</h3>
+          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
+            <li>Logotipo & sistema visivo</li>
+            <li>Linee guida & template</li>
+            <li>Kit social & campagne</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border">
+          <h3 class="font-medium">Healthcare / Pharma</h3>
+          <ul class="mt-3 space-y-2 text-sm text-zinc-700 list-disc pl-5">
+            <li>E-visual, HCP deck, agende</li>
+            <li>Design compliant & accessibile</li>
+            <li>Turnaround rapido, NDA-safe</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -101,10 +170,26 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Process</h2>
       <ol class="mt-8 grid md:grid-cols-4 gap-6 text-sm">
-        <li class="rounded-2xl p-5 border bg-zinc-50">Discovery</li>
-        <li class="rounded-2xl p-5 border bg-zinc-50">Direction</li>
-        <li class="rounded-2xl p-5 border bg-zinc-50">Design</li>
-        <li class="rounded-2xl p-5 border bg-zinc-50">Delivery</li>
+        <li class="rounded-2xl p-5 border bg-zinc-50">
+          <div class="text-zinc-400 text-xs">01</div>
+          <div class="font-medium">Discovery</div>
+          <div class="mt-1 text-zinc-700">Brief, obiettivi, vincoli, asset.</div>
+        </li>
+        <li class="rounded-2xl p-5 border bg-zinc-50">
+          <div class="text-zinc-400 text-xs">02</div>
+          <div class="font-medium">Direction</div>
+          <div class="mt-1 text-zinc-700">Proposte visive, feedback rapidi.</div>
+        </li>
+        <li class="rounded-2xl p-5 border bg-zinc-50">
+          <div class="text-zinc-400 text-xs">03</div>
+          <div class="font-medium">Design</div>
+          <div class="mt-1 text-zinc-700">Produzione layout/assets + iterazioni.</div>
+        </li>
+        <li class="rounded-2xl p-5 border bg-zinc-50">
+          <div class="text-zinc-400 text-xs">04</div>
+          <div class="font-medium">Delivery</div>
+          <div class="mt-1 text-zinc-700">File finali, guide e supporto.</div>
+        </li>
       </ol>
     </div>
   </section>
@@ -114,12 +199,19 @@
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
       <div class="md:col-span-2">
         <h2 class="text-2xl md:text-3xl font-semibold">About</h2>
-        <p class="mt-4 text-zinc-700">Mi occupo di design editoriale e visual identity...</p>
+        <p class="mt-4 text-zinc-700">
+          Mi occupo di design editoriale e visual identity, trasformando contenuti articolati in esperienze chiare e leggibili. Il mio lavoro spazia dall’editoria tradizionale alla comunicazione healthcare, con un approccio che combina ricerca tipografica, struttura modulare e attenzione al dettaglio.
+        </p>
+        <p class="mt-3 text-zinc-700">
+          Tools: InDesign, Illustrator, Photoshop, After Effects. Deliverables: stampa, PDF interattivi, motion snippet, social kit.
+        </p>
       </div>
       <div class="rounded-2xl bg-white border p-6">
         <h3 class="font-medium">Facts</h3>
-        <ul class="mt-3 text-sm text-zinc-700">
-          <li>Salerno (IT)</li><li>P.IVA 03016040648</li><li>IT / EN</li>
+        <ul class="mt-3 space-y-2 text-sm text-zinc-700">
+          <li>Salerno (IT) · Remoto & on-site</li>
+          <li>P.IVA 03016040648</li>
+          <li>IT / EN</li>
         </ul>
       </div>
     </div>
@@ -139,7 +231,7 @@
         <input class="border rounded-xl p-3" name="company" placeholder="Azienda / Brand (facoltativo)">
         <textarea class="border rounded-xl p-3 min-h-[140px]" name="message" placeholder="Dettagli progetto, obiettivi, deadline" required></textarea>
 
-        <!-- Anti-bot -->
+        <!-- honeypot anti-bot -->
         <div aria-hidden="true" class="hidden">
           <input type="text" name="website" tabindex="-1" autocomplete="off">
         </div>
@@ -157,6 +249,7 @@
           </button>
           <a href="mailto:ianniciello.sergio@gmail.com" class="text-sm underline underline-offset-4">Oppure email diretta</a>
         </div>
+        <p class="text-xs text-zinc-500">Zero cookie, zero tracker. Solo email.</p>
       </form>
     </div>
   </section>
@@ -172,8 +265,10 @@
     </div>
   </footer>
 
+  <!-- SCRIPT SOLO PER ANNO -->
   <script>
-    var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
